@@ -4,8 +4,80 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "445b2b56036f4fb3c253035674db75e4",
+    "content-hash": "2f701e954c816c3638d2d41422c36415",
     "packages": [
+        {
+            "name": "andrey-helldar/laravel-app",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andrey-helldar/laravel-app.git",
+                "reference": "5fa8664a5ee141add2a0f1de94191dc2198dcb4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andrey-helldar/laravel-app/zipball/5fa8664a5ee141add2a0f1de94191dc2198dcb4c",
+                "reference": "5fa8664a5ee141add2a0f1de94191dc2198dcb4c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^6.0|^7.0|^8.0",
+                "illuminate/filesystem": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.2"
+            },
+            "suggest": {
+                "laravel/helpers": "Provides backwards compatibility for helpers in the latest Laravel release."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Helldar\\LaravelApp\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Helldar\\LaravelApp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Andrey Helldar",
+                    "email": "helldar@ai-rus.com"
+                }
+            ],
+            "description": "Provides backwards compatibility for app:name command in the latest Laravel release.",
+            "keywords": [
+                "console",
+                "helpers",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/andrey-helldar/laravel-app/issues",
+                "source": "https://github.com/andrey-helldar/laravel-app"
+            },
+            "funding": [
+                {
+                    "url": "https://money.yandex.ru/to/410012115955701",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://paypal.me/helldar",
+                    "type": "custom"
+                }
+            ],
+            "time": "2020-06-02T10:56:20+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",
