@@ -1,4 +1,4 @@
-<nav class="navbar-default navbar-static-side" role="navigation">
+{{-- <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
@@ -8,18 +8,7 @@
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
-                            <span class="block m-t-xs"> <strong class="font-bold">{{Auth::user()->name}}</strong></span>
-                            @if(Auth::user()->user_access_id == '1')
-                                <span class="text-muted text-xs block">{{"Normal Staff"}}<b class="caret"></b></span>
-                            @elseif (Auth::user()->user_access_id == '2')
-                                <span class="text-muted text-xs block">{{"HOD"}}<b class="caret"></b></span>
-                            @elseif (Auth::user()->user_access_id == '3')
-                                <span class="text-muted text-xs block">{{"PROVOST"}}<b class="caret"></b></span>
-                            @elseif (Auth::user()->user_access_id == '4')
-                                <span class="text-muted text-xs block">{{"REGISTRY"}}<b class="caret"></b></span>
-                            @elseif (Auth::user()->user_access_id == '5')
-                                <span class="text-muted text-xs block">{{"SUPER ADMIN"}}<b class="caret"></b></span>
-                            @endif
+                            <span class="block m-t-xs"> <strong class="font-bold">User</strong></span>
                         </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -27,38 +16,15 @@
                         <li><a href="contacts.html">Contacts</a></li>
                         <li><a href="mailbox.html">Mailbox</a></li>
                         <li class="divider"></li>
-                        <li><a href="{{ url('/logout') }}">Logout</a></li>
+                        <li><a href="{{ route('logout') }}">Logout</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
-                    KWASU
+                    Hayok-Medicare
                 </div>
             </li>
             <li class="active">
                 <a href="{{ url('/') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-user"></i> <span class="nav-label">Leave</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    @if (in_array(Auth::user()->user_access_id, array('1','2','3','5')))
-                        <li><a href="{{url('/application')}}">Application</a></li>
-                    @endif
-
-                    @if (in_array(Auth::user()->user_access_id, array('2','3','5')))
-                        <li><a href="{{url('/applied')}}">Applied</a></li>
-                    @endif
-
-                    @if (in_array(Auth::user()->user_access_id, array('4','5')))
-                        <li><a href="{{url('/search')}}">Search</a></li>
-                        <li><a href="{{url('/allLeave')}}">All Leave</a></li>
-                        <li><a href="{{url('/approved')}}">Approved</a></li>
-                    @endif
-
-                    @if (Auth::user()->user_access_id == 5)
-                        <li><a href="{{url('/leaveDepartment')}}">Leave Department</a></li>
-                        <li><a href="{{url('/leaveType')}}">Leave Type</a></li>
-                    @endif
-                </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-bed"></i> <span class="nav-label">clinic</span><span class="fa arrow"></span></a>
@@ -71,13 +37,77 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#"><i class="fa fa-user"></i> <span class="nav-label">kbikes</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="{{url('/student')}}">student</a></li>
-                    <li><a href="{{url('/admin')}}">Admin</a></li>
-                </ul>
-            </li>
         </ul>
     </div>
-</nav>
+</nav> --}}
+
+
+
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                                <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                                </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                                </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+                <li>
+                    <a href="{{ url('/home')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="index.html">Dashboard v.1</a></li>
+                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
+                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
+                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
+                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="{{ url('/newPatient') }}"><i class="fa fa-user"></i> <span class="nav-label">New Patient</span></a>
+                </li>
+                <li class="active">
+                    <a href="{{ url('/existingPatient') }}"><i class="fa fa-diamond"></i> <span class="nav-label">Existing Patient</span></a>
+                </li>
+                <li class="active">
+                    <a href="{{ url('/doctorOffice') }}"><i class="fa fa-diamond"></i> <span class="nav-label">Doctor office</span></a>
+                </li>
+                <li class="active">
+                    <a href="{{ url('/doctorRemark') }}"><i class="fa fa-diamond"></i> <span class="nav-label">Doctor Remark</span></a>
+                </li>
+                <li class="active">
+                    <a href="{{ url('/managePatient') }}"><i class="fa fa-diamond"></i> <span class="nav-label">Manage Patient</span></a>
+                </li>
+                <li class="active">
+                    <a href="{{ url('/patientHistory') }}"><i class="fa fa-diamond"></i> <span class="nav-label">Patient History</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="graph_flot.html">Flot Charts</a></li>
+                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
+                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
+                        <li><a href="graph_chartjs.html">Chart.js</a></li>
+                        <li><a href="graph_chartist.html">Chartist</a></li>
+                        <li><a href="c3.html">c3 charts</a></li>
+                        <li><a href="graph_peity.html">Peity Charts</a></li>
+                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
