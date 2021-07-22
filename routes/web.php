@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Events\Message;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -47,15 +48,10 @@ Route::group(['middleware' => 'App\Http\Middleware\doctorMiddleware'], function(
     Route::match(['post','get'], '/patientHistory', 'App\Http\Controllers\PatientController@patientHistory');
 });
 
+
+
 // Route::group(['middleware' => 'App\Http\Middleware\doctorPatientMiddleware'], function(){
 // });
-
-
 //Route::get('managePatient', 'PatientController@index');
-
-
-
-
-
 //Route::get('/doctorOffice', 'App\Http\Controllers\PatientController@show');
 //Route::get('/searchResult', 'App\Http\Controllers\PatientController@store');
