@@ -86,8 +86,6 @@
 </div>
 
 
-
-
 <script src="js/plugins/flot/jquery.flot.js"></script>
 <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
 <script src="js/plugins/flot/jquery.flot.resize.js"></script>

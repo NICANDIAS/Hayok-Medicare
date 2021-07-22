@@ -33,14 +33,26 @@ Route::POST('/Message', function(Request $request){
     );
 });
 
+Route::group(['middleware' => 'App\Http\Middleware\patientMiddleware'], function(){
+    Route::match(['post','get'], '/patient', 'App\Http\Controllers\PatientController@edit');
+});
+
+Route::group(['middleware' => 'App\Http\Middleware\doctorMiddleware'], function(){
+    Route::match(['post','get'], '/existingPatient', 'App\Http\Controllers\PatientController@show')->name('existingPatient');
+    Route::match(['post','get'], '/searchResult', 'App\Http\Controllers\PatientController@show');
+    Route::match(['post','get'], '/newPatient', 'App\Http\Controllers\PatientController@index');
+    Route::match(['post','get'], '/doctorOffice', 'App\Http\Controllers\DoctorDecisionController@index');
+    Route::match(['post','get'], '/doctorRemark/{id}', 'App\Http\Controllers\DoctorDecisionController@edit');
+    Route::match(['post','get'], '/managePatient', 'App\Http\Controllers\PatientController@managePatient');
+    Route::match(['post','get'], '/patientHistory', 'App\Http\Controllers\PatientController@patientHistory');
+});
+
+// Route::group(['middleware' => 'App\Http\Middleware\doctorPatientMiddleware'], function(){
+// });
+
+
 //Route::get('managePatient', 'PatientController@index');
-Route::match(['post','get'], '/existingPatient', 'App\Http\Controllers\PatientController@show')->name('existingPatient');
-Route::match(['post','get'], '/searchResult', 'App\Http\Controllers\PatientController@show');
-Route::match(['post','get'], '/newPatient', 'App\Http\Controllers\PatientController@index');
-Route::match(['post','get'], '/doctorOffice', 'App\Http\Controllers\DoctorDecisionController@index');
-Route::match(['post','get'], '/doctorRemark/{id}', 'App\Http\Controllers\DoctorDecisionController@edit');
-Route::match(['post','get'], '/managePatient', 'App\Http\Controllers\PatientController@managePatient');
-Route::match(['post','get'], '/patientHistory', 'App\Http\Controllers\PatientController@patientHistory');
+
 
 
 

@@ -15,41 +15,42 @@
                         <thead>
                             <tr>
                                 <th>S/N</th>
-                                <th>CARD NUMBER</th>
-                                <th>ADDRESS</th>
-                                <th>WEIGHT</th>
-                                <th>HEIGHT</th>
-                                <th>BMI</th>
-                                <th>DATE CREATED</th>
-                                <th>DATE UPDATED</th>
-                                <th>ACTION</th>
+                                <th>Card Number</th>
+                                <th>Blood Group</th>
+                                <th>weight</th>
+                                <th>height</th>
+                                <th>Age</th>
+                                <th>Date Created</th>
+                                <th>Date Updated</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach($leave_t as $leaveType) --}}
+                            <?php $s = 1?>
+                            @foreach($patient as $patient)
                             <tr>
-                                <td>1</td>
-                                <td>Norman Leave</td>
-                                <td>20<br>10</td>
-                                <td>come and be going</td>
-                                <td>come and be going</td>
-                                <td>come and be going</td>
-                                <td>come and be going</td>
-                                <td>Nov-12-2020</td>
+                                <td>{{$s++}}</td>
+                                <td>{{$patient->patient_id}}</td>
+                                <td>{{$patient->bloodgroup}}</td>
+                                <td>{{$patient->weight}}</td>
+                                <td>{{$patient->height}}</td>
+                                <td>{{$patient->age}}</td>
+                                <td>{{$patient->created_at}}</td>
+                                <td>{{$patient->updated_at}}</td>
                             <td><a class="btn btn-primary" href="#">Edit</a> | <a class="btn btn-danger" href="#">Delete</a></td>
                             </tr>
-                            {{-- @endforeach --}}
+                            @endforeach
                             <tfoot>
                                 <tr>
                                     <th>S/N</th>
-                                    <th>CARD NUMBER</th>
-                                    <th>ADDRESS</th>
-                                    <th>WEIGHT</th>
-                                    <th>HEIGHT</th>
-                                    <th>BMI</th>
-                                    <th>DATE CREATED</th>
-                                    <th>DATE UPDATED</th>
-                                    <th>ACTION</th>
+                                    <th>Card Number</th>
+                                    <th>Blood Group</th>
+                                    <th>weight</th>
+                                    <th>height</th>
+                                    <th>Age</th>
+                                    <th>Date Created</th>
+                                    <th>Date Updated</th>
+                                    <th>Action</th>
                                 </tr>
                             </tfoot>
                         </tbody>
