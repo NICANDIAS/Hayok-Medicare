@@ -84,10 +84,6 @@
     </nav>
     @include('inc.footer')
 
-
-    
-
-
 </div>
 
 <div class="loginColumns animated fadeInDown">

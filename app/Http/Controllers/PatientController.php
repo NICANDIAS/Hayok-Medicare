@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use carbon\Carbon;
 use App\Models\Patients;
@@ -150,9 +151,13 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit(Request $request){
+        $user = Auth::user()->email;
+        $patient = Patients::all()->where('email','=',$user)->first();
+        $patient_id = Patients::all()->where('email',$user)->first()->pluck('patient_id');
+        $next_of_kin = Next_of_kin::all()->where('patient_id', $patient_id)->first();
+
+        return view ('clinic.patient', ['patient' => $patient, 'next_of_kin' => $next_of_kin]);
     }
 
     /**
@@ -178,9 +183,10 @@ class PatientController extends Controller
         //
     }
 
-    public function managePatient()
-    {
-        return view('clinic.managePatient');
+    public function managePatient(){
+        $patient = Patients::all();
+
+        return view('clinic.managePatient')->with('patient', $patient);
     }
 
     public function patientHistory()
