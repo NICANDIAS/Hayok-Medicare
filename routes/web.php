@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Events\Message;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,16 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::POST('/Message', function(Request $request){
+    event(
+        new Message(
+            $request->input('username'), 
+            $request->input('message')
+        )
+    );
+});
 
 //Route::get('managePatient', 'PatientController@index');
 Route::match(['post','get'], '/existingPatient', 'App\Http\Controllers\PatientController@show')->name('existingPatient');

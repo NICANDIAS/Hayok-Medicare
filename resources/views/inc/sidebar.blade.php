@@ -94,6 +94,9 @@
                 <li class="active">
                     <a href="{{ url('/patientHistory') }}"><i class="fa fa-diamond"></i> <span class="nav-label">Patient History</span></a>
                 </li>
+                <li class="active">
+                    <a href="{{ url('/Message') }}"><i class="fa fa-inbox"></i> <span class="nav-label">Chat with a Doctor</span></a>
+                </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
